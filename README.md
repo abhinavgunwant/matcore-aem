@@ -1,17 +1,11 @@
-# Sample AEM project template
+# MatCore - Material design core components for AEM!
 
-This is a project template for AEM-based applications. It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.
+MatCore is a collection of Adobe WCM Core components redesigned using the [MDC Web Componenets](https://material.io/develop/web/) library.
 
-## Modules
+It has all the qualities of Adobe Core Components plus the UX of material design.
 
-The main parts of the template are:
-
-* core: Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
-* ui.apps: contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, templates, runmode specific configs as well as Hobbes-tests
-* ui.content: contains sample content using the components from the ui.apps
-* ui.tests: Java bundle containing JUnit tests that are executed server-side. This bundle is not to be deployed onto production.
-* ui.launcher: contains glue code that deploys the ui.tests bundle (and dependent bundles) to the server and triggers the remote JUnit execution
-* ui.frontend: an optional dedicated front-end build mechanism based on Webpack
+## This is a Work In progress!
+This is a work in progress right now, please reach out if you want to help!
 
 ## How to build
 
