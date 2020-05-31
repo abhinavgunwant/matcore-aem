@@ -1,4 +1,11 @@
-.cmp-button {}
-.cmp-button__text {}
-.cmp-button__icon {}
-//.cmp-button__icon--myIcon {}
+.button {
+    .cmp-button, a.cmp-button {
+        text-decoration: none;
+        font-family: Roboto;
+
+        .cmp-button__text.mdc-button__label {
+            text-transform: capitalize;
+        }
+        .cmp-button__icon {}
+    }
+}
