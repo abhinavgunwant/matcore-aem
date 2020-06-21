@@ -1,0 +1,2 @@
+# Using different JS in ui.frontend folder!
+# This is empty!

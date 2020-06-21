@@ -27,22 +27,27 @@
                     aria-label="${tabs.accessibilityLabel}"
                     aria-multiselectable="false">
 
-                    <sly data-sly-test.isActive="${tab.name == tabs.activeItem}"/>
+                    <sly data-sly-test="${tabs.activeItem}">${tabs.activeItem}</sly>
+                    <sly data-sly-test.isActive="${tab.name == tabs.activeItem}">
+                        ${tab.name}
+                        ${tabs.activeItem}
+                    </sly>
 
                     <button role="tab"
                         class="mdc-tab cmp-tabs__tab${isActive ? ' mdc-tab--active cmp-tabs__tab--active' : ''}"
                         tabindex="${isActive ? '0' : '-1'}"
                         aria-selected="${ isActive }"
-                        data-cmp-hook-tabs="tab">
+                        data-cmp-hook-tabs="tab"
+                        data-cmp-blah="${tab.name} ${tabs.activeItem}">
 
                         <span class="mdc-tab__content">
-                            <!--/* mdc-icon to be added here in future! */-->
+                            <!--/* TODO: mdc-icon to be added here in future! */-->
                             <span class="mdc-tab__text-label">
                                 ${tab.title}
                             </span>
                         </span>
 
-                        <span class="mdc-tab-indicator  ${tab.name == tabs.activeItem ? 'mdc-tab-indicator--active' : ''}">
+                        <span class="mdc-tab-indicator${isActive ? ' mdc-tab-indicator--active' : ''}">
                             <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
                         </span>
 
