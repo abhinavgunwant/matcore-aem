@@ -1,5 +1,29 @@
 /*******************************************************************************
- * TODO: Change into es6 class
+ * Copyright 2018 Adobe
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
+
+/******************************************************************************
+ * MatCore
+ * 
+ * Changes:
+ * - Removed the keyboard "keydown" event and related code from this file since
+ *   material web components has this functionality already (User is supposed
+ *   to press enter key in order to select the tab).
+ * 
+ * TODO:
+ * - Change into es6 class
  ******************************************************************************/
 
 import {MDCTabBar} from '@material/tab-bar';
@@ -15,15 +39,6 @@ console.log('material tabs initialized!');
 
     var NS = "cmp";
     var IS = "tabs";
-
-    var keyCodes = {
-        END: 35,
-        HOME: 36,
-        ARROW_LEFT: 37,
-        ARROW_UP: 38,
-        ARROW_RIGHT: 39,
-        ARROW_DOWN: 40
-    };
 
     var selectors = {
         self: "[data-" +  NS + '-is="' + IS + '"]',
@@ -153,49 +168,8 @@ console.log('material tabs initialized!');
                         tabs[i].addEventListener("click", function(event) {
                             navigateAndFocusTab(index);
                         });
-                        tabs[i].addEventListener("keydown", function(event) {
-                            onKeyDown(event);
-                        });
                     })(i);
                 }
-            }
-        }
-
-        /**
-         * Handles tab keydown events
-         *
-         * @private
-         * @param {Object} event The keydown event
-         */
-        function onKeyDown(event) {
-            var index = that._active;
-            var lastIndex = that._elements["tab"].length - 1;
-
-            switch (event.keyCode) {
-                case keyCodes.ARROW_LEFT:
-                case keyCodes.ARROW_UP:
-                    event.preventDefault();
-                    if (index > 0) {
-                        navigateAndFocusTab(index - 1);
-                    }
-                    break;
-                case keyCodes.ARROW_RIGHT:
-                case keyCodes.ARROW_DOWN:
-                    event.preventDefault();
-                    if (index < lastIndex) {
-                        navigateAndFocusTab(index + 1);
-                    }
-                    break;
-                case keyCodes.HOME:
-                    event.preventDefault();
-                    navigateAndFocusTab(0);
-                    break;
-                case keyCodes.END:
-                    event.preventDefault();
-                    navigateAndFocusTab(lastIndex);
-                    break;
-                default:
-                    return;
             }
         }
 
