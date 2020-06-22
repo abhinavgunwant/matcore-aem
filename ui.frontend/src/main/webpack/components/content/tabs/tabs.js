@@ -32,8 +32,6 @@ import {MDCTabIndicator} from '@material/tab-indicator';
 const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
 const tabIndicator = new MDCTabIndicator(document.querySelector('.mdc-tab-indicator'));
 
-console.log('material tabs initialized!');
-
 (function() {
     "use strict";
 
