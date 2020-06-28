@@ -26,7 +26,7 @@
     data-sly-use.iconTemplate="icon.html"
     data-sly-element="${button.link ? 'a' : 'button'}"
     class="cmp-button mdc-button ${ properties.type }${ properties.type == 'mdc-icon-button' && properties.iconType == 'material' ? ' material-icons' : ''}"
-    style="color: ${ properties.iconType == 'material' && properties.materialIconColor ? properties.materialIconColor : '' @context='styleToken'}${ properties.iconType == 'markup' && properties.htmlMarkupIconColor ? properties.htmlMarkupIconColor : '' @context='styleToken'}"
+    style="color: ${ properties.type == 'mdc-icon-button' && properties.iconType == 'material' && properties.materialIconColor ? properties.materialIconColor : '' @context='styleToken'}${ properties.type == 'mdc-icon-button' && properties.iconType == 'markup' && properties.htmlMarkupIconColor ? properties.htmlMarkupIconColor : '' @context='styleToken'}"
     href="${button.link}"
     aria-label="${button.accessibilityLabel}">
         <div class="mdc-button__ripple" data-sly-test="${ properties.type != 'mdc-icon-button' }"></div>
