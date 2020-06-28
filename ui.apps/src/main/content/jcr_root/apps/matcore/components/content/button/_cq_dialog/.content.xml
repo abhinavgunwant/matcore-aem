@@ -169,7 +169,7 @@
                                                                 sling:resourceType="granite/ui/components/coral/foundation/form/select"
                                                                 fieldDescription="Icon type to be rendered in the button."
                                                                 fieldLabel="Icon Type"
-                                                                name="./type">
+                                                                name="./iconType">
                                                                 <granite:data
                                                                     jcr:primaryType="nt:unstructured"
                                                                     cq-dialog-dropdown-showhide-target=".showhidetargets-icontype"/>
@@ -199,6 +199,12 @@
                                                                         fieldDescription="Name of the material icon you want to display in this button."
                                                                         fieldLabel="Material Icon Name"
                                                                         name="./materialIconName"/>
+                                                                    <materialIconColor
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+                                                                        fieldDescription="Color specifically used for material icon."
+                                                                        fieldLabel="Material Icon Color"
+                                                                        name="./materialIconColor" />
                                                                 </items>
                                                                 <granite:data
                                                                     jcr:primaryType="nt:unstructured"
@@ -215,6 +221,12 @@
                                                                         fieldDescription="You can type/paste the font-awesome &lt;i> markup here."
                                                                         fieldLabel="HTML Markup"
                                                                         name="./iconMarkup"/>
+                                                                    <htmlMarkupIconColor
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+                                                                        fieldDescription="Color specifically used for HTML markup icon."
+                                                                        fieldLabel="HTML Markup Icon Color"
+                                                                        name="./htmlMarkupIconColor" />
                                                                 </items>
                                                                 <granite:data
                                                                     jcr:primaryType="nt:unstructured"

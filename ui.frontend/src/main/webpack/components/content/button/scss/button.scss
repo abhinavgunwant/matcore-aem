@@ -7,5 +7,10 @@
             text-transform: capitalize;
         }
         .cmp-button__icon {}
+
+        &.mdc-button.mdc-icon-button.material-icons {
+            font-family: 'Material Icons';
+            text-transform: none;
+        }
     }
 }
