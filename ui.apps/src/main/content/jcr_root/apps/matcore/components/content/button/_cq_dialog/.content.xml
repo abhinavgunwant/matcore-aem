@@ -44,10 +44,188 @@
                                                 name="./link"/>
                                             <icon
                                                 jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                fieldDescription="Icon identifier for displaying an icon in the button."
-                                                fieldLabel="Icon"
-                                                name="./icon"/>
+                                                granite:hide="true" />
+                                            <iconContainer
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                margin="{Boolean}true">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <heading
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/heading"
+                                                        level="1"
+                                                        text="Icon"/>
+                                                    <fieldContainer
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/well">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <iconType
+                                                                granite:class="cq-dialog-dropdown-showhide"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                fieldDescription="Icon type to be rendered in the button."
+                                                                fieldLabel="Icon Type"
+                                                                name="./iconType">
+                                                                <granite:data
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    cq-dialog-dropdown-showhide-target=".showhidetargets-icontype"/>
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <none
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="None"
+                                                                        value="none"/>
+                                                                    <material
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Material Icon"
+                                                                        value="material"/>
+                                                                    <markup
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="HTML Markup (e.g: fontawesome)"
+                                                                        value="markup"/>
+                                                                    <image
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Image/SVG"
+                                                                        value="image"/>
+                                                                    <custom
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        text="Custom"
+                                                                        value="custom"/>
+                                                                </items>
+                                                            </iconType>
+                                                            <materialIconContainer
+                                                                granite:class="showhidetargets-icontype"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <materialIcon
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldDescription="Name of the material icon you want to display in this button."
+                                                                        fieldLabel="Material Icon Name"
+                                                                        name="./materialIconName"/>
+                                                                    <materialIconColorContainer
+                                                                        granite:class="showhidetargets"
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                        <granite:data
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            showhidetargetvalue="mdc-icon-button"/>
+                                                                        <items jcr:primaryType="nt:unstructured">
+                                                                            <materialIconColor
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+                                                                                fieldDescription="Color specifically used for material icon."
+                                                                                fieldLabel="Material Icon Color"
+                                                                                name="./materialIconColor" />
+                                                                        </items>
+                                                                    </materialIconColorContainer>
+                                                                </items>
+                                                                <granite:data
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    showhidetargetvalue="material"/>
+                                                            </materialIconContainer>
+                                                            <htmlMarkupIconContainer
+                                                                granite:class="showhidetargets-icontype"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <htmlMarkupIcon
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldDescription="You can type/paste the font-awesome &lt;i> markup here."
+                                                                        fieldLabel="HTML Markup"
+                                                                        name="./iconMarkup"/>
+                                                                    <htmlMarkupIconColorContainer
+                                                                        granite:class="showhidetargets"
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                        <granite:data
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            showhidetargetvalue="mdc-icon-button"/>
+                                                                        <items jcr:primaryType="nt:unstructured">
+                                                                            <htmlMarkupIconColor
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
+                                                                                fieldDescription="Color specifically used for HTML markup icon."
+                                                                                fieldLabel="HTML Markup Icon Color"
+                                                                                name="./htmlMarkupIconColor" />
+                                                                        </items>
+                                                                    </htmlMarkupIconColorContainer>
+                                                                </items>
+                                                                <granite:data
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    showhidetargetvalue="markup"/>
+                                                            </htmlMarkupIconContainer>
+                                                            <imageIconContainer
+                                                                granite:class="showhidetargets-icontype"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <imageFile
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                                        autoStart="{Boolean}false"
+                                                                        class="cq-droptarget"
+                                                                        fileNameParameter="./fileName"
+                                                                        fileReferenceParameter="./fileReference"
+                                                                        mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                                        multiple="{Boolean}false"
+                                                                        name="./imagefile"
+                                                                        title="Upload Image Asset"
+                                                                        uploadUrl="${suffix.path}"
+                                                                        useHTML5="{Boolean}true"/>
+                                                                </items>
+                                                                <granite:data
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    showhidetargetvalue="image"/>
+                                                            </imageIconContainer>
+                                                            <customIconContainer
+                                                                granite:class="showhidetargets-icontype"
+                                                                jcr:primaryType="nt:unstructured"
+                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                <items jcr:primaryType="nt:unstructured">
+                                                                    <customIconClass
+                                                                        jcr:primaryType="nt:unstructured"
+                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                        fieldDescription="Enter the custom Icon style class."
+                                                                        fieldLabel="Custom Icon class"
+                                                                        name="./customIcon"/>
+                                                                </items>
+                                                                <granite:data
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    showhidetargetvalue="custom"/>
+                                                            </customIconContainer>
+                                                        </items>
+                                                    </fieldContainer>
+                                                </items>
+                                            </iconContainer>
+                                            <noteHeading
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/heading"
+                                                level="4"
+                                                text="Note:"/>
+                                            <note1Container
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <note1
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/text"
+                                                        level="5"
+                                                        text="&#9679; Only MDC Icon Button supports different icon colors (Can be set from the 'Type' dropdown in 'MDC Styles' tab)."/>
+                                                </items>
+                                            </note1Container>
+                                            <note2Container
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <note2
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/text"
+                                                        level="5"
+                                                        text="&#9679; MDC Icon Button does not show text."/>
+                                                </items>
+                                            </note2Container>
                                         </items>
                                     </column>
                                 </items>
@@ -139,126 +317,6 @@
                                                         value="mdc-icon-button"/>
                                                 </items>
                                             </types>
-                                            <iconButtonContainer
-                                                granite:class="showhidetargets"
-                                                jcr:primaryType="nt:unstructured"
-                                                sling:resourceType="granite/ui/components/coral/foundation/container"
-                                                margin="{Boolean}true">
-                                                <granite:data
-                                                    jcr:primaryType="nt:unstructured"
-                                                    showhidetargetvalue="mdc-icon-button"/>
-                                                <items jcr:primaryType="nt:unstructured">
-                                                    <heading
-                                                        jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/coral/foundation/heading"
-                                                        description="Note: The MDC Icon Button does not display text!"
-                                                        level="h1"
-                                                        text="Icon Button Style Settings"/>
-                                                    <note
-                                                        jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/foundation/text"
-                                                        level="h4"
-                                                        text="Note: MDC Icon Button does not show text."/>
-                                                    <fieldContainer
-                                                        jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/coral/foundation/well">
-                                                        <items jcr:primaryType="nt:unstructured">
-                                                            <iconType
-                                                                granite:class="cq-dialog-dropdown-showhide"
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                                fieldDescription="Icon type to be rendered in the button."
-                                                                fieldLabel="Icon Type"
-                                                                name="./iconType">
-                                                                <granite:data
-                                                                    jcr:primaryType="nt:unstructured"
-                                                                    cq-dialog-dropdown-showhide-target=".showhidetargets-icontype"/>
-                                                                <items jcr:primaryType="nt:unstructured">
-                                                                    <material
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        text="Material Icon"
-                                                                        value="material"/>
-                                                                    <markup
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        text="HTML Markup (e.g: fontawesome)"
-                                                                        value="markup"/>
-                                                                    <image
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        text="Image/SVG"
-                                                                        value="image"/>
-                                                                </items>
-                                                            </iconType>
-                                                            <materialIconContainer
-                                                                granite:class="showhidetargets-icontype"
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
-                                                                <items jcr:primaryType="nt:unstructured">
-                                                                    <materialIcon
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                                        fieldDescription="Name of the material icon you want to display in this button."
-                                                                        fieldLabel="Material Icon Name"
-                                                                        name="./materialIconName"/>
-                                                                    <materialIconColor
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
-                                                                        fieldDescription="Color specifically used for material icon."
-                                                                        fieldLabel="Material Icon Color"
-                                                                        name="./materialIconColor" />
-                                                                </items>
-                                                                <granite:data
-                                                                    jcr:primaryType="nt:unstructured"
-                                                                    showhidetargetvalue="material"/>
-                                                            </materialIconContainer>
-                                                            <htmlMarkupIconContainer
-                                                                granite:class="showhidetargets-icontype"
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
-                                                                <items jcr:primaryType="nt:unstructured">
-                                                                    <htmlMarkupIcon
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                                        fieldDescription="You can type/paste the font-awesome &lt;i> markup here."
-                                                                        fieldLabel="HTML Markup"
-                                                                        name="./iconMarkup"/>
-                                                                    <htmlMarkupIconColor
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        sling:resourceType="granite/ui/components/coral/foundation/form/colorfield"
-                                                                        fieldDescription="Color specifically used for HTML markup icon."
-                                                                        fieldLabel="HTML Markup Icon Color"
-                                                                        name="./htmlMarkupIconColor" />
-                                                                </items>
-                                                                <granite:data
-                                                                    jcr:primaryType="nt:unstructured"
-                                                                    showhidetargetvalue="markup"/>
-                                                            </htmlMarkupIconContainer>
-                                                            <imageIconContainer
-                                                                granite:class="showhidetargets-icontype"
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/container">
-                                                                <items jcr:primaryType="nt:unstructured">
-                                                                    <imageFile
-                                                                        jcr:primaryType="nt:unstructured"
-                                                                        sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
-                                                                        autoStart="{Boolean}false"
-                                                                        class="cq-droptarget"
-                                                                        fileNameParameter="./fileName"
-                                                                        fileReferenceParameter="./fileReference"
-                                                                        mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
-                                                                        multiple="{Boolean}false"
-                                                                        name="./imagefile"
-                                                                        title="Upload Image Asset"
-                                                                        uploadUrl="${suffix.path}"
-                                                                        useHTML5="{Boolean}true"/>
-                                                                </items>
-                                                                <granite:data
-                                                                    jcr:primaryType="nt:unstructured"
-                                                                    showhidetargetvalue="image"/>
-                                                            </imageIconContainer>
-                                                        </items>
-                                                    </fieldContainer>
-                                                </items>
-                                            </iconButtonContainer>
                                         </items>
                                     </column>
                                 </items>

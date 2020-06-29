@@ -29,8 +29,11 @@
 import {MDCTabBar} from '@material/tab-bar';
 import {MDCTabIndicator} from '@material/tab-indicator';
 
-const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
-const tabIndicator = new MDCTabIndicator(document.querySelector('.mdc-tab-indicator'));
+// TODO: Make a common function for running code after dom content load.
+document.addEventListener('DOMContentLoaded', function(){
+    const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
+    const tabIndicator = new MDCTabIndicator(document.querySelector('.mdc-tab-indicator'));
+});
 
 (function() {
     "use strict";

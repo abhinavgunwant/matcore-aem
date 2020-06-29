@@ -18,30 +18,40 @@
   ~ MatCore
   ~
   ~ Changes:
-  ~ - Added mdc classes in the markup where applicable
+  ~ - Added mdc classes and additional markup where applicable.
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/-->
 
-<button
-    data-sly-use.button="com.adobe.cq.wcm.core.components.models.Button"
-    data-sly-use.iconTemplate="icon.html"
-    data-sly-element="${button.link ? 'a' : 'button'}"
-    class="cmp-button mdc-button ${ properties.type }${ properties.type == 'mdc-icon-button' && properties.iconType == 'material' ? ' material-icons' : ''}"
-    style="color: ${ properties.type == 'mdc-icon-button' && properties.iconType == 'material' && properties.materialIconColor ? properties.materialIconColor : '' @context='styleToken'}${ properties.type == 'mdc-icon-button' && properties.iconType == 'markup' && properties.htmlMarkupIconColor ? properties.htmlMarkupIconColor : '' @context='styleToken'}"
-    href="${button.link}"
-    aria-label="${button.accessibilityLabel}">
-        <div class="mdc-button__ripple" data-sly-test="${ properties.type != 'mdc-icon-button' }"></div>
-        
-        <sly data-sly-call="${iconTemplate.icon @ icon=button.icon}"></sly>
+<div
+    class="button__touch-wrapper mdc-touch-target-wrapper"
+    data-sly-unwrap="${ !properties.touchButton }">
+    <button
+        data-sly-use.button="com.adobe.cq.wcm.core.components.models.Button"
+        data-sly-use.iconTemplate="icon.html"
+        data-sly-element="${button.link ? 'a' : 'button'}"
+        class="cmp-button mdc-button ${ properties.type }${ properties.touchButton ? ' mdc-button--touch' : '' }"
+        href="${button.link}"
+        aria-label="${button.accessibilityLabel}">
 
-        <span data-sly-test="${button.text}" class="cmp-button__text mdc-button__label" data-sly-test="${ properties.type != 'mdc-icon-button' }">
-            ${button.text}
+        <div
+            class="mdc-button__ripple"
+            data-sly-test="${ properties.type != 'mdc-icon-button' }">
+        </div>
+            
+        <sly data-sly-call="${ iconTemplate.icon @
+            type=properties.type,
+            iconType=properties.iconType,
+            materialIconName=properties.materialIconName,
+            iconMarkup=properties.iconMarkup,
+            customIcon=properties.customIcon,
+            materialIconColor=properties.materialIconColor,
+            htmlMarkupIconColor=properties.htmlMarkupIconColor }"></sly>
+        
+        <span
+            data-sly-test="${ button.text && properties.type != 'mdc-icon-button' }"
+            class="cmp-button__text mdc-button__label">
+            ${ button.text }
         </span>
 
-        <sly data-sly-test="${ properties.type == 'mdc-icon-button' && properties.iconType == 'material' }">
-            ${ properties.materialIconName }
-        </sly>
-
-        <sly data-sly-test="${ properties.type == 'mdc-icon-button' && properties.iconType == 'markup' }">
-          ${ properties.iconMarkup @ context='html' }
-        </sly>
-</button>
+        <div class="mdc-button__touch" data-sly-test="${ properties.touchButton }"></div>
+    </button>
+</div>
